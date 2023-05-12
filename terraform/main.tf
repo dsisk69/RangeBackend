@@ -69,7 +69,35 @@ resource "proxmox_vm_qemu" "kali_blank" {
         model = "virtio"
         bridge = "vmbr2"
     }
+
     bootdisk = "scsi0"
     
 
 }
+
+resource "proxmox_vm_qemu" "ubuntu_desktop_blank" {
+
+    name = "ubuntu-desktop-blank"
+    target_node = "r730"
+    iso = "local:iso/ubuntudesktopraw.iso"
+    os_type = "linux"
+    sockets = 2
+    cores = 4
+    memory = "4096"
+    scsihw = "virtio-scsi-pci"
+
+    disk {
+        size = "50G"
+        type = "scsi"
+        storage = "local-lvm"
+    }
+
+    network {
+        model = "virtio"
+        bridge = "vmbr2"
+    }
+
+    bootdisk = "scsi0"
+
+}
+
