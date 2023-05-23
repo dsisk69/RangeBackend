@@ -35,7 +35,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
     cores = 2
     memory = "4096"
     scsihw = "virtio-scsi-pci"
-    onboot = true
+    oncreate = true
 
     disk {
         size = "50G"
@@ -60,9 +60,10 @@ resource "proxmox_vm_qemu" "win10_desktop" {
     full_clone = true
     os_type = "win10"
     sockets = 2
-    cores = 4
+    cores = 2
     memory = "4096"
     scsihw = "virtio-scsi-pci"
+    oncreate = true 
 
     disk {
         size = "50G"
@@ -78,6 +79,7 @@ resource "proxmox_vm_qemu" "win10_desktop" {
 
 }
 
+
 resource "proxmox_vm_qemu" "kali" {
 
     count = 2
@@ -91,6 +93,7 @@ resource "proxmox_vm_qemu" "kali" {
     cores = 2
     memory = "4096"
     scsihw = "virtio-scsi-pci"
+    oncreate = true
 
     disk {
         size = "50G"
@@ -107,29 +110,34 @@ resource "proxmox_vm_qemu" "kali" {
 
 }
 
-//resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
-//  name = "ubuntu-desktop-blank"
-//  target_node = "r730"
-//  iso = "local:iso/ubuntudesktopraw.iso"
-//  os_type = "linux"
-//  sockets = 2
-//  cores = 4
-//  memory = "4096"
-//  scsihw = "virtio-scsi-pci"
-//
-//  disk {
-//      size = "50G"
-//      type = "scsi"
-//      storage = "local"
-//  }
-//
-//  network {
-//      model = "virtio"
-//      bridge = "vmbr2"
-//  }
-//
-//  bootdisk = "scsi0"
+resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
-//}
+    count = 2
+
+    name = "ubuntu-desktop-tf-${count.index}"
+    target_node = "r730"
+    clone = "UbuntuHost"
+    full_clone = true
+    os_type = "linux"
+    sockets = 2
+    cores = 2
+    memory = "4096"
+    scsihw = "virtio-scsi-pci"
+    oncreate = true
+
+    disk {
+        size = "50G"
+        type = "scsi"
+        storage = "local"
+    }
+
+    network {
+        model = "virtio"
+        bridge = "vmbr2"
+    }
+
+    bootdisk = "scsi0"
+
+}
 
