@@ -37,7 +37,7 @@ resource "proxmox_vm_qemu" "win10_blank" {
     disk {
         size = "50G"
         type = "scsi"
-        storage = "local-lvm"
+        storage = "local"
     }
 
     network {
@@ -62,7 +62,7 @@ resource "proxmox_vm_qemu" "kali_blank" {
     disk {
         size = "50G"
         type = "scsi"
-        storage = "local-lvm"
+        storage = "local"
     }
 
     network {
@@ -89,7 +89,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop_blank" {
     disk {
         size = "50G"
         type = "scsi"
-        storage = "local-lvm"
+        storage = "local"
     }
 
     network {
