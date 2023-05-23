@@ -51,30 +51,32 @@ resource "proxmox_vm_qemu" "win2019_server" {
 }
 
 
-//resource "proxmox_vm_qemu" "win10_desktop" {
-//
-//  name = "win10"
-//  target_node = "r730"
-//  iso = "local:iso/win10raw.iso"
-//  os_type = "win10"
-//  sockets = 2
-//  cores = 4
-//  memory = "4096"
-//  scsihw = "virtio-scsi-pci"
-//
-//  disk {
-//      size = "50G"
-//      type = "scsi"
-//      storage = "local"
-//  }
-//
-//  network {
-//      model = "virtio"
-//      bridge = "vmbr2"
-//  }
-//  bootdisk = "scsi0"
+resource "proxmox_vm_qemu" "win10_desktop" {
+ 
+    count = 2
+    name = "win10-desktop-tf-${count.index}"
+    target_node = "r730"
+    clone = "Windows10Host"
+    full_clone = true
+    os_type = "win10"
+    sockets = 2
+    cores = 4
+    memory = "4096"
+    scsihw = "virtio-scsi-pci"
 
-//}
+    disk {
+        size = "50G"
+        type = "scsi"
+        storage = "local"
+    }
+
+    network {
+        model = "virtio"
+        bridge = "vmbr2"
+    }
+    bootdisk = "scsi0"
+
+}
 
 resource "proxmox_vm_qemu" "kali" {
 
