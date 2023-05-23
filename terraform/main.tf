@@ -23,20 +23,21 @@ provider "proxmox" {
 
 }
 
-resource "proxmox_vm_qemu" "win10_blank" {
+resource "proxmox_vm_qemu" "win2019_server" {
 
-    name = "win10-blank"
+    name = "win2019-server"
     target_node = "r730"
-    iso = "local:iso/win10raw.iso"
-    os_type = "win10"
+    clone = "WindowsServer2019"
+    full_clone = true
     sockets = 2
-    cores = 4
+    cores = 2
     memory = "4096"
     scsihw = "virtio-scsi-pci"
+    onboot = true
 
     disk {
         size = "50G"
-        type = "scsi"
+        type = "scsi0"
         storage = "local"
     }
 
@@ -45,59 +46,84 @@ resource "proxmox_vm_qemu" "win10_blank" {
         bridge = "vmbr2"
     }
     bootdisk = "scsi0"
-
 }
 
-resource "proxmox_vm_qemu" "kali_blank" {
+
+//resource "proxmox_vm_qemu" "win10_desktop" {
+//
+//  name = "win10"
+//  target_node = "r730"
+//  iso = "local:iso/win10raw.iso"
+//  os_type = "win10"
+//  sockets = 2
+//  cores = 4
+//  memory = "4096"
+//  scsihw = "virtio-scsi-pci"
+//
+//  disk {
+//      size = "50G"
+//      type = "scsi"
+//      storage = "local"
+//  }
+//
+//  network {
+//      model = "virtio"
+//      bridge = "vmbr2"
+//  }
+//  bootdisk = "scsi0"
+
+//}
+
+//resource "proxmox_vm_qemu" "kali" {
     
-    name = "kali-blank"
-    target_node = "r730"
-    iso = "local:iso/kaliraw.iso"
-    os_type = "linux"
-    sockets = 2
-    cores = 4
-    memory = "4096"
-    scsihw = "virtio-scsi-pci"
+//  name = "kali-blank"
+//  target_node = "r730"
+//  iso = "local:iso/kaliraw.iso"
+//  os_type = "linux"
+//  sockets = 2
+//  cores = 4
+//  memory = "4096"
+//  scsihw = "virtio-scsi-pci"
+//
+//  disk {
+//      size = "50G"
+//      type = "scsi"
+//      storage = "local"
+//  }
+//
+//  network {
+//      model = "virtio"
+//      bridge = "vmbr2"
+//  }
+//
+//  bootdisk = "scsi0"
+  
 
-    disk {
-        size = "50G"
-        type = "scsi"
-        storage = "local"
-    }
+//}
 
-    network {
-        model = "virtio"
-        bridge = "vmbr2"
-    }
+//resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
-    bootdisk = "scsi0"
-    
+//  name = "ubuntu-desktop-blank"
+//  target_node = "r730"
+//  iso = "local:iso/ubuntudesktopraw.iso"
+//  os_type = "linux"
+//  sockets = 2
+//  cores = 4
+//  memory = "4096"
+//  scsihw = "virtio-scsi-pci"
+//
+//  disk {
+//      size = "50G"
+//      type = "scsi"
+//      storage = "local"
+//  }
+//
+//  network {
+//      model = "virtio"
+//      bridge = "vmbr2"
+//  }
+//
+//  bootdisk = "scsi0"
 
-}
-
-resource "proxmox_vm_qemu" "ubuntu_desktop_blank" {
-
-    name = "ubuntu-desktop-blank"
-    target_node = "r730"
-    iso = "local:iso/ubuntudesktopraw.iso"
-    os_type = "linux"
-    sockets = 2
-    cores = 4
-    memory = "4096"
-    scsihw = "virtio-scsi-pci"
-
-    disk {
-        size = "50G"
-        type = "scsi"
-        storage = "local"
-    }
-
-    network {
-        model = "virtio"
-        bridge = "vmbr2"
-    }
-
-    bootdisk = "scsi0"
-
-}
+//}
 
