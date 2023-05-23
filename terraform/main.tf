@@ -25,7 +25,7 @@ provider "proxmox" {
 
 resource "proxmox_vm_qemu" "win2019_server" {
 
-    name = "win2019-server"
+    name = "win2019-server-tf"
     target_node = "r730"
     clone = "WindowsServer2019"
     full_clone = true
@@ -74,32 +74,32 @@ resource "proxmox_vm_qemu" "win2019_server" {
 
 //}
 
-//resource "proxmox_vm_qemu" "kali" {
+resource "proxmox_vm_qemu" "kali" {
     
-//  name = "kali-blank"
-//  target_node = "r730"
-//  iso = "local:iso/kaliraw.iso"
-//  os_type = "linux"
-//  sockets = 2
-//  cores = 4
-//  memory = "4096"
-//  scsihw = "virtio-scsi-pci"
-//
-//  disk {
-//      size = "50G"
-//      type = "scsi"
-//      storage = "local"
-//  }
-//
-//  network {
-//      model = "virtio"
-//      bridge = "vmbr2"
-//  }
-//
-//  bootdisk = "scsi0"
-  
+  name = "kali-tf"
+  target_node = "r730"
+  clone = "Kali"
+  full_clone = true
+  os_type = "linux"
+  sockets = 2
+  cores = 2
+  memory = "4096"
+  scsihw = "virtio-scsi-pci"
 
-//}
+  disk {
+      size = "50G"
+      type = "scsi0"
+      storage = "local"
+  }
+
+  network {
+      model = "virtio"
+      bridge = "vmbr2"
+  }
+
+  bootdisk = "scsi0"
+
+}
 
 //resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
