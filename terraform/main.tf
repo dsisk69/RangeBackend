@@ -47,7 +47,6 @@ resource "proxmox_vm_qemu" "win2019_server" {
         model = "virtio"
         bridge = "vmbr2"
     }
-    bootdisk = "scsi0"
 }
 
 
@@ -75,7 +74,6 @@ resource "proxmox_vm_qemu" "win10_desktop" {
         model = "virtio"
         bridge = "vmbr2"
     }
-    bootdisk = "scsi0"
 
 }
 
@@ -106,7 +104,6 @@ resource "proxmox_vm_qemu" "kali" {
         bridge = "vmbr2"
     }
 
-    bootdisk = "scsi0"
 
 }
 
@@ -137,7 +134,6 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
         bridge = "vmbr2"
     }
 
-    bootdisk = "scsi0"
 
 }
 
@@ -166,7 +162,6 @@ resource "proxmox_vm_qemu" "ubuntu_server" {
         bridge = "vmbr2"
     }
 
-    bootdisk = "scsi0"
 }
 
 resource "proxmox_vm_qemu" "seconion_standalone" {
@@ -194,5 +189,4 @@ resource "proxmox_vm_qemu" "seconion_standalone" {
         bridge = "vmbr2"
     }
 
-    bootdisk = "scsi0"
 }
