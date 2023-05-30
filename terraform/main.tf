@@ -26,7 +26,7 @@ provider "proxmox" {
 resource "proxmox_vm_qemu" "win2019_server" {
 
 
-    count = 0
+    count = 2
     name = "win2019-server-tf-${count.index}"
     target_node = "r730"
     clone = "WindowsServer2019"
@@ -35,7 +35,6 @@ resource "proxmox_vm_qemu" "win2019_server" {
     cores = 2
     memory = "4096"
     scsihw = "virtio-scsi-pci"
-    oncreate = true
 
     disk {
         size = "50G"
