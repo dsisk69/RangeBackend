@@ -30,7 +30,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
     name = "win2019-server-tf-${count.index}"
     target_node = "r730"
     clone = "WindowsServer2019"
-    full_clone = true
+    full_clone = false
     sockets = 2
     cores = 2
     memory = "4096"
@@ -57,7 +57,7 @@ resource "proxmox_vm_qemu" "win10_desktop" {
     name = "win10-desktop-tf-${count.index}"
     target_node = "r730"
     clone = "Windows10Host"
-    full_clone = true
+    full_clone = false
     os_type = "win10"
     sockets = 2
     cores = 2
@@ -87,7 +87,7 @@ resource "proxmox_vm_qemu" "kali" {
     name = "kali-tf-${count.index}"
     target_node = "r730"
     clone = "Kali"
-    full_clone = true
+    full_clone = false
     os_type = "linux"
     sockets = 2
     cores = 2
@@ -118,7 +118,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
     name = "ubuntu-desktop-tf-${count.index}"
     target_node = "r730"
     clone = "UbuntuHost"
-    full_clone = true
+    full_clone = false
     os_type = "linux"
     sockets = 2
     cores = 2
@@ -147,7 +147,7 @@ resource "proxmox_vm_qemu" "ubuntu_server" {
     name = "ubuntu-server-tf-${count.index}"
     target_node = "r730"
     clone = "UbuntuServer"
-    full_clone = true
+    full_clone = false
     os_type = "linux"
     sockets = 2
     cores = 2
@@ -175,7 +175,7 @@ resource "proxmox_vm_qemu" "seconion_standalone" {
     name = "seconion-standalone-tf-${count.index}"
     target_node = "r730"
     clone = "SecurityOnion"
-    full_clone = true 
+    full_clone = false 
     os_type = "linux"
     sockets = 4
     cores = 4
