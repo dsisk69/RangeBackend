@@ -32,32 +32,32 @@ provider "proxmox" {
 }
 
 variable "win2019_server" {
-    type = int
+    type = number
 }
 
 
 variable "win10_pro" {
-    type = int
+    type = number
 }
 
 
 variable "kali" {
-    type = int
+    type = number
 }
 
 
 variable "ubuntu_desktop" {
-    type = int
+    type = number
 }
 
 
 variable "ubuntu_server" {
-    type = int
+    type = number
 }
 
 
 variable "securityonion_standalone" {
-    type = int
+    type = number
 }
 
 
