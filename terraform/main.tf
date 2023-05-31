@@ -51,7 +51,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
 
 resource "proxmox_vm_qemu" "win10_pro" {
  
-    count = 2
+    count = 1
     name = "win10-pro-tf-${count.index}"
     target_node = "r730"
     clone = "Windows10Pro"
