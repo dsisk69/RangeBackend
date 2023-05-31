@@ -15,6 +15,7 @@ variable "PM_PASSWORD" {
     type = string
 }
 
+
 provider "proxmox" {
     pm_tls_insecure = true
     pm_api_url = "https://192.168.100.2:8006/api2/json"
@@ -30,10 +31,39 @@ provider "proxmox" {
 
 }
 
+variable "win2019_server" {
+    type = int
+}
+
+
+variable "win10_pro" {
+    type = int
+}
+
+
+variable "kali" {
+    type = int
+}
+
+
+variable "ubuntu_desktop" {
+    type = int
+}
+
+
+variable "ubuntu_server" {
+    type = int
+}
+
+
+variable "securityonion_standalone" {
+    type = int
+}
+
+
 resource "proxmox_vm_qemu" "win2019_server" {
+    count = var.win2019_server
 
-
-    count = 1
     name = "tf-win2019-server-${count.index}"
     target_node = "r730"
     clone = "WindowsServer2019"
@@ -59,8 +89,8 @@ resource "proxmox_vm_qemu" "win2019_server" {
 
 
 resource "proxmox_vm_qemu" "win10_pro" {
- 
-    count = 4
+    count = var.win10_pro
+
     name = "tf-win10-pro-${count.index}"
     target_node = "r730"
     clone = "Windows10Pro"
@@ -87,8 +117,7 @@ resource "proxmox_vm_qemu" "win10_pro" {
 
 
 resource "proxmox_vm_qemu" "kali" {
-
-    count = 2
+    count = var.kali
 
     name = "tf-kali-${count.index}"
     target_node = "r730"
@@ -117,8 +146,7 @@ resource "proxmox_vm_qemu" "kali" {
 
 
 resource "proxmox_vm_qemu" "ubuntu_desktop" {
-
-    count = 2
+    count = var.ubuntu_desktop
 
     name = "tf-ubuntu-desktop-${count.index}"
     target_node = "r730"
@@ -147,7 +175,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
 
 resource "proxmox_vm_qemu" "ubuntu_server" {
-    count = 2
+    count = var.ubuntu_server
 
     name = "tf-ubuntu-server-${count.index}"
     target_node = "r730"
@@ -174,12 +202,12 @@ resource "proxmox_vm_qemu" "ubuntu_server" {
 }
 
 resource "proxmox_vm_qemu" "seconion_standalone" {
-    count = 1
+    count = var.seconion_standalone
 
     name = "tf-seconion-standalone-${count.index}"
     target_node = "r730"
     clone = "SecurityOnion"
-    full_clone = true 
+    full_clone = true
     os_type = "linux"
     sockets = 4
     cores = 4
