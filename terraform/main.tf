@@ -152,7 +152,7 @@ resource "proxmox_vm_qemu" "ubuntu_server" {
     oncreate = true 
 
     disk {
-        size = "50G"
+        size = "100G"
         type = "scsi"
         storage = "local"
     }
