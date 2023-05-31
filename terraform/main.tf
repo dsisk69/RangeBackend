@@ -20,6 +20,7 @@ provider "proxmox" {
     pm_api_url = "https://192.168.100.2:8006/api2/json"
     pm_user = var.PM_USER 
     pm_password = var.PM_PASSWORD
+    pm_debug = true
 
 }
 
