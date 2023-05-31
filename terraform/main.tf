@@ -20,7 +20,13 @@ provider "proxmox" {
     pm_api_url = "https://192.168.100.2:8006/api2/json"
     pm_user = var.PM_USER 
     pm_password = var.PM_PASSWORD
+    pm_log_enable = true
+    pm_log_file = "terraform-rangebackend.log"
     pm_debug = true
+    pm_log_levels = {
+        _default = "debug"
+        _capturelog = ""
+    }
 
 }
 
