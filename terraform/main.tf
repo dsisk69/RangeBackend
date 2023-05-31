@@ -79,18 +79,18 @@ resource "proxmox_vm_qemu" "win10_pro" {
 
 resource "proxmox_vm_qemu" "kali" {
 
-    count = 2
+    count = 1
 
     name = "kali-tf-${count.index}"
     target_node = "r730"
     clone = "Kali"
     full_clone = true
-    os_type = "linux"
+   // os_type = "linux"
     sockets = 2
     cores = 2
     memory = "4096"
     scsihw = "virtio-scsi-pci"
-    oncreate = true
+   // oncreate = true
 
     disk {
         size = "50G"
@@ -135,6 +135,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
 
 }
+
 
 resource "proxmox_vm_qemu" "ubuntu_server" {
     count = 1
