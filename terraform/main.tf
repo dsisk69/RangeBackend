@@ -56,7 +56,7 @@ variable "ubuntu_server" {
 }
 
 
-variable "securityonion_standalone" {
+variable "seconion_standalone" {
     type = number
 }
 
