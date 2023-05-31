@@ -34,7 +34,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
 
 
     count = 1
-    name = "win2019-server-tf-${count.index}"
+    name = "[TF]:win2019-server-tf-${count.index}"
     target_node = "r730"
     clone = "WindowsServer2019"
     full_clone = true
@@ -61,7 +61,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
 resource "proxmox_vm_qemu" "win10_pro" {
  
     count = 4
-    name = "win10-pro-tf-${count.index}"
+    name = "[TF]:win10-pro-tf-${count.index}"
     target_node = "r730"
     clone = "Windows10Pro"
     full_clone = true
@@ -90,7 +90,7 @@ resource "proxmox_vm_qemu" "kali" {
 
     count = 2
 
-    name = "kali-tf-${count.index}"
+    name = "[TF]:kali-tf-${count.index}"
     target_node = "r730"
     clone = "Kali"
     full_clone = true
@@ -120,7 +120,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
     count = 2
 
-    name = "ubuntu-desktop-tf-${count.index}"
+    name = "[TF]:ubuntu-desktop-tf-${count.index}"
     target_node = "r730"
     clone = "UbuntuHost"
     full_clone = true
@@ -149,7 +149,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
 resource "proxmox_vm_qemu" "ubuntu_server" {
     count = 2
 
-    name = "ubuntu-server-tf-${count.index}"
+    name = "[TF]:ubuntu-server-tf-${count.index}"
     target_node = "r730"
     clone = "UbuntuServer"
     full_clone = true
@@ -176,7 +176,7 @@ resource "proxmox_vm_qemu" "ubuntu_server" {
 resource "proxmox_vm_qemu" "seconion_standalone" {
     count = 1
 
-    name = "seconion-standalone-tf-${count.index}"
+    name = "[TF]:seconion-standalone-tf-${count.index}"
     target_node = "r730"
     clone = "SecurityOnion"
     full_clone = true 
