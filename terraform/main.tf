@@ -37,7 +37,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
     scsihw = "virtio-scsi-pci"
 
     disk {
-        size = "50G"
+        size = "100G"
         type = "scsi0"
         storage = "local"
     }
@@ -93,7 +93,7 @@ resource "proxmox_vm_qemu" "kali" {
    // oncreate = true
 
     disk {
-        size = "50G"
+        size = "100G"
         type = "scsi0"
         storage = "local"
     }
