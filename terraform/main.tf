@@ -47,7 +47,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
 
     disk {
         size = "100G"
-        type = "scsi0"
+        type = "scsi"
         storage = "local"
     }
 
@@ -103,7 +103,7 @@ resource "proxmox_vm_qemu" "kali" {
 
     disk {
         size = "100G"
-        type = "scsi0"
+        type = "scsi"
         storage = "local"
     }
 
