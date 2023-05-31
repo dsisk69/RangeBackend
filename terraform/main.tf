@@ -36,6 +36,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
     cores = 4
     memory = "32768"
     scsihw = "virtio-scsi-pci"
+    oncreate = true
 
     disk {
         size = "100G"
