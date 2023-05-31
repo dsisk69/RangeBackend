@@ -32,8 +32,8 @@ resource "proxmox_vm_qemu" "win2019_server" {
     clone = "WindowsServer2019"
     full_clone = true
     sockets = 2
-    cores = 2
-    memory = "4096"
+    cores = 4
+    memory = "32768"
     scsihw = "virtio-scsi-pci"
 
     disk {
@@ -87,8 +87,8 @@ resource "proxmox_vm_qemu" "kali" {
     full_clone = true
    // os_type = "linux"
     sockets = 2
-    cores = 2
-    memory = "4096"
+    cores = 4
+    memory = "16384"
     scsihw = "virtio-scsi-pci"
    // oncreate = true
 
