@@ -60,7 +60,7 @@ resource "proxmox_vm_qemu" "win2019_server" {
 
 resource "proxmox_vm_qemu" "win10_pro" {
  
-    count = 1
+    count = 4
     name = "win10-pro-tf-${count.index}"
     target_node = "r730"
     clone = "Windows10Pro"
@@ -88,7 +88,7 @@ resource "proxmox_vm_qemu" "win10_pro" {
 
 resource "proxmox_vm_qemu" "kali" {
 
-    count = 1
+    count = 2
 
     name = "kali-tf-${count.index}"
     target_node = "r730"
@@ -118,7 +118,7 @@ resource "proxmox_vm_qemu" "kali" {
 
 resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
-    count = 1
+    count = 2
 
     name = "ubuntu-desktop-tf-${count.index}"
     target_node = "r730"
@@ -147,7 +147,7 @@ resource "proxmox_vm_qemu" "ubuntu_desktop" {
 
 
 resource "proxmox_vm_qemu" "ubuntu_server" {
-    count = 1
+    count = 2
 
     name = "ubuntu-server-tf-${count.index}"
     target_node = "r730"
