@@ -109,8 +109,9 @@ resource "proxmox_vm_qemu" "win10_pro" {
     }
 
     network {
-        model = "virtio"
+        model = "e1000"
         bridge = "vmbr2"
+        firewall = true
     }
 
 }
