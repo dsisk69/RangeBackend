@@ -1,3 +1,6 @@
+
+Set-ExecutionPolicy Bypass -scope Process -Force
+
 #Sets values of characters and numbers to pull from
 $TokenSet = @{
         U = [Char[]]'DEFENDER'
@@ -17,6 +20,8 @@ $computername = (Get-Random -Count 15 -InputObject $StringSet) -join ''
 #Renames computer
 Rename-Computer $computername
 
+Start-Sleep 5
+
 #Sets DNS to Domain Controller
 
 $IntIndex = Get-NetAdapter | Select-Object InterfaceIndex
@@ -32,5 +37,7 @@ $credential = New-Object System.Management.Automation.PSCredential($username,$pa
 
 #Adds the computer to domain
 Add-Computer -DomainName $domain -Credential $credential
+
+Start-Sleep 5
 
 Restart-Computer
