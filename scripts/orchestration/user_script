@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+while read -r user pass; do 
+	useradd -m $user
+	echo -e "$pass\n$pass" | (passwd $user) 2>/dev/null
+	echo "$user account created"
+done < "./UserPass"
+

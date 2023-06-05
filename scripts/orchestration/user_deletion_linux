@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Path to the file containing the list of usernames
+user_list_file="UserPass"
+
+# Loop through the list of usernames
+while read -r username pass; do
+    # Check if the user exists
+    if id "$username" >/dev/null 2>&1; then
+        # Delete the user
+        sudo userdel -r "$username"
+        echo "Deleted user: $username"
+    else
+        echo "User not found: $username"
+    fi
+done < "$user_list_file"
+
