@@ -1,4 +1,4 @@
-﻿#Sets values of characters and numbers to pull from
+#Sets values of characters and numbers to pull from
 $TokenSet = @{
         U = [Char[]]'DEFENDER'
         L = [Char[]]'defender'
@@ -17,6 +17,11 @@ $computername = (Get-Random -Count 15 -InputObject $StringSet) -join ''
 #Renames computer
 Rename-Computer $computername
 
+#Sets DNS to Domain Controller
+
+$IntIndex = Get-NetAdapter | Select-Object InterfaceIndex
+Set-DnsClientServerAddress -InterfaceIndex $IntIndex.InterfaceIndex -ServerAddresses 192.168.2.2
+
 #Sets domain information to variables
 $domain = "purple.mat"
 $password = "1qaz2wsx!QAZ@WSX" | ConvertTo-SecureString -asPlainText -Force
@@ -27,3 +32,5 @@ $credential = New-Object System.Management.Automation.PSCredential($username,$pa
 
 #Adds the computer to domain
 Add-Computer -DomainName $domain -Credential $credential
+
+Restart-Computer
