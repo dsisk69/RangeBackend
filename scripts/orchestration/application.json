@@ -1,6 +1,6 @@
 ﻿{
   "IdEnabled": true,
-  "IdUrl": "http://172.18.0.2:40480/api/clientid",
+  "IdUrl": "http://<the ip of the ghost server that is associated with port 5000>:5000/api/clientid",
   "IdFormat": "guestlocal",
   "IdFormatKey": "guestinfo.id",
   "IdFormatValue": "$formatkeyvalue$-$machinename$",
@@ -10,12 +10,12 @@
   "ClientResults": {
     "IsEnabled": true,
     "IsSecure": false,
-    "PostUrl": "http://172.18.0.2:40480/api/clientresults",
+    "PostUrl": "http://<the ip of the ghost server that is associated with port 5000>:5000/api/clientresults",
     "CycleSleep": 1
   },
   "ClientUpdates": {
     "IsEnabled": true,
-    "PostUrl": "http://172.18.0.2:40480/api/clientupdates",
+    "PostUrl": "http://<the ip of the ghost server that is associated with port 5000>:5000/api/clientupdates",
     "CycleSleep": 1
   },
   "Survey": {
@@ -24,7 +24,7 @@
     "Frequency": "once",
     "CycleSleepMinutes": 1,
     "OutputFormat": "indent",
-    "PostUrl": "http://172.18.0.2:40480/api/clientsurvey"
+    "PostUrl": "http://<the ip of the ghost server that is associated with port 5000>:5000/api/clientsurvey"
   },
   "Content": {
     "EmailsMax":  20,
