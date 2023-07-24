@@ -1,4 +1,4 @@
-﻿# Specify the registry key you want to check and create if it doesn't exist
+# Specify the registry key you want to check and create if it doesn't exist
 $registryKeyHOSTNAME = "HKLM:\Software\Purple\Hostname"
 
 # Check if the registry key exists
@@ -34,13 +34,16 @@ else {
 
     #Renames computer
     Rename-Computer $computername
-    
+  
+    Start-Sleep 1
+
+
     Restart-Computer
 
     # Add your commands here.
 }
 # Specify the registry key you want to check and create if it doesn't exist
-$registryKeyHOSTNAME = "HKLM:\Software\Purple\Domain"
+$registryKeyDOMAIN = "HKLM:\Software\Purple\Domain"
 
 # Check if the registry key exists
 if (Test-Path -Path $registryKeyDOMAIN) {
@@ -72,7 +75,7 @@ else {
     #Adds the computer to domain
     Add-Computer -DomainName $domain -Credential $credential
 
-    Start-Sleep 5
+    Start-Sleep 1
 
     Restart-Computer
 }
