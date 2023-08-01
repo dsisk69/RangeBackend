@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pictures Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .picture-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .picture-container .column {
+            flex-basis: 50%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .picture {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Two Columns of Pictures (3 Rows)</h1>
+    <div class="picture-container">
+        <div class="column">
+            <img class="picture" src="picture1.jpg" alt="Picture 1">
+            <img class="picture" src="picture2.jpg" alt="Picture 2">
+            <img class="picture" src="picture3.jpg" alt="Picture 3">
+        </div>
+        <div class="column">
+            <img class="picture" src="picture4.jpg" alt="Picture 4">
+            <img class="picture" src="picture5.jpg" alt="Picture 5">
+            <img class="picture" src="picture6.jpg" alt="Picture 6">
+        </div>
+    </div>
+</body>
+</html>
