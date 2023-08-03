@@ -43,3 +43,7 @@ if ($domainTest -ne 'purple.mat' -and $env:COMPUTERNAME -ne 'SWAGGY'){
 
     Restart-Computer -Force
 }
+if ($domainTest -eq 'purple.mat'){
+    Unregister-ScheduledTask -TaskName "Master_Script" -Confirm:$false
+    Add-WindowsCapability -Online -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
+}
