@@ -81,48 +81,32 @@
             border-radius: 0 0 20px 20px;
         }
     </style>
-    <title>Purple Mattr3ss Store - Home</title>
+    <title>Purple Mattr3ss Store - Apply for a Job</title>
 </head>
 <body>
 
 <div class="header">
-    <p style="font-family: 'Impact', sans-serif; font-size: 250%;">Welcome to Purple Mattr3ss Store!</p>
+    <p style="font-family: 'Impact', sans-serif; font-size: 250%;">We pay less than minimum wage but will provide a pizza party once a year!</p>
 </div>
 
 <div class="button">
-    <h1>Totally not cringe. Totally not vulnerable.</h1>
-    <p>Explore our collection of uncomfortable and junkxurious purple mattr3sses.</p>
+    <h1>It ain't much but it's honest work.</h1>
     <!-- Navigation Links -->
     <nav>
         <ul>
-            <li>
-                <a href="products.html">Pro-ducks
-                </a>
-            </li>
-            <li>
-                <a href="gallery.html">Gallery Gallery
-                </a>
-            </li>
-            <li>
-                <a href="apply_for_a_job.html">Apply for a Job
-                </a>
-             </li>
-            <li>
-                <a href="contact.html">Contact Us
-                </a>
-             </li>
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="apply_for_a_job.html">Back to Apply for a Job</a></li>
+            <li><a href="products.html">Pro-ducks</a></li>
+            <li><a href="gallery.html">Gallery Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
-    
-</div>
-<div style="background-color:#c9c9c9;padding:15px;">
 </div>
 <section class="social">
     <ul>
         <li>
             <a href="https://www.facebook.com" target="_blank" class="ga_nav_link">
-                
-             <i class="fa fa-yelp fa-spin" style="color: #51331f;"></i> Yelp
+                <i class="fab fa-facebook"></i> Facebook
             </a>
         </li>
         <li>
@@ -143,21 +127,58 @@
         <!-- Add more social media links here using the same structure -->
     </ul>
 </section>
-<div style="background-color:#c9c9c9;padding:15px;">
-</div>
-<div class="mattress-images">
-    <img src="/jpg/mattress1.jpg" alt="Mattress 1">
-    <img src="/jpg/mattress2.jpg" alt="Mattress 2">
-    <img src="/jpg/mattress3.jpg" alt="Mattress 3">
-    <img src="/jpg/mattress4.jpg" alt="Mattress 4">
-    <img src="/jpg/mattress5.jpg" alt="Mattress 5">
-    <img src="/jpg/mattress6.jpg" alt="Mattress 6">
-</div>
-
-<div class="footer">
-    <p>&copy; 2023 Reckless Ideas Creations(R). All rights unreserved.</p>
-</div>
-<div class="navigation">
 </div>
 </body>
+</html>
+
+<head>
+<body>
+
+	 <div style="background-color:#c9c9c9;padding:15px;">
+	</div>
+
+	<div align="center">
+	<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" >
+		<p>Enter your name below to get your dream job</p>
+		Submit whatever you want! Just dont try any SQL exploits : <input type="text" name="firstname">
+		<input type="submit" name="submit" value="Submit">
+	</form>
+	</div>
+
+
+<?php 
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$db = "1ccb8097d0e9ce9f154608be60224c7c";
+
+	// Create connection
+	$conn = mysqli_connect($servername,$username,$password,$db);
+
+	// Check connection
+	if (!$conn) {
+    	die("Connection failed: " . mysqli_connect_error());
+	} 
+	//echo "Connected successfully";
+	
+	if(isset($_POST["submit"])){
+		$firstname = $_POST["firstname"];
+		$sql = "SELECT lastname FROM users WHERE firstname='$firstname'";//String
+		$result = mysqli_query($conn,$sql);
+		
+		if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+    		while($row = mysqli_fetch_assoc($result)) {
+       			echo $row["lastname"];
+       			echo "<br>";
+    		}
+		} else {
+    		echo "You will NOT be considered. Get lost fool.";
+		}
+	}
+	
+ ?>
+ <div class="footer">
+    <p>&copy; 2023 Purple Mattr3ss Store. All rights unreserved.</p>
+</div>
 </html>

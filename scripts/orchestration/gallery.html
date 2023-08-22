@@ -1,6 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Resources/hmbct.png" />
+    <link rel="stylesheet" href="Resources/button.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+7nxU2KGn9ElNWvPbPxH+2HJ1D05UdC4f8jUtW1I4zQV80X" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        /* ... Add your existing styles here ... */
+        .header {
+            background-color: #483D8B;
+            padding: 15px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+            color: white;
+        }
+        .button {
+            background-color: #4CAF50;
+            padding: 20px;
+            border-radius: 0 0 20px 20px;
+            color: white;
+            text-align: center;
+        }
+        .button h1 {
+            color: black;
+        }
+        .button p {
+            color: black;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin-bottom: 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        .social ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .social ul li {
+            margin-right: 10px;
+        }
+        .social ul li a {
+            text-decoration: none;
+            color: #696969;
+        }
+        .mattress-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px auto;
+        }
+        .mattress-images img {
+            width: 30%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .mattress-images img:hover {
+            transform: scale(1.05);
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #483D8B;
+            color: white;
+            border-radius: 0 0 20px 20px;
+        }
+    </style>
+    <title>Purple Mattr3ss Store - Home</title>
+</head>
+<body>
+
+<div class="header">
+    <p style="font-family: 'Impact', sans-serif; font-size: 250%;">Welcome to Purple Mattr3ss Store!</p>
+</div>
+
+<div class="button">
+    <h1>Totally not cringe. Totally not vulnerable.</h1>
+    <p>Explore our collection of uncomfortable and junkxurious purple mattr3sses.</p>
+    <!-- Navigation Links -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="products.html">Pro-ducks</a></li>
+            <li><a href="apply_for_a_job.html">Apply for a Job</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</div>
+<section class="social">
+    <ul>
+        <li>
+            <a href="https://www.facebook.com" target="_blank" class="ga_nav_link">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com" target="_blank" class="ga_nav_link">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com" target="_blank" class="ga_nav_link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com" target="_blank" class="ga_nav_link">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+        </li>
+        <!-- Add more social media links here using the same structure -->
+    </ul>
+</section>
+<body>
+<div style="background-color:#c9c9c9;padding:15px;">
+</div>
+
+<div align="center">
+<form action="" method="post" enctype="multipart/form-data">
+   <br>
+    <b>Upload your own foto!: </b>
+    <input type="file" name="file" id="file" style="border: solid;">
+    <input type="submit" value="Submit" name="submit">
+</form>
+</div>
+<?php
+
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+	$target_dir = "uploads/";
+	$target_file = $target_dir . basename($_FILES["file"]["name"]);
+    move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+    echo "File uploaded /uploads/".$_FILES["file"]["name"];
+}
+?>
+</body>
+</html>
+<html>
+<head>
     <title>Pictures Display</title>
     <style>
         body {
@@ -25,23 +177,23 @@
     </style>
 </head>
 <body>
-    <h1>Two Columns of Pictures (3 Rows Deep)</h1>
+    <h1>Fotos from actual customers</h1>
     <div class="picture-container">
         <div class="column">
-            <img class="picture" src="picture1.jpg" alt="Picture 1">
-            <img class="picture" src="picture2.jpg" alt="Picture 2">
-            <img class="picture" src="picture3.jpg" alt="Picture 3">
+            <img class="picture" src="/jpg/mattress3.jpg" alt="Picture 1">
+            <img class="picture" src="/jpg/mattress4.jpg" alt="Picture 2">
+        </div>        <div class="column">
+            <img class="picture" src="/jpg/mattress5.jpg" alt="Picture 3">
+            <img class="picture" src="/jpg/mattress6.jpg" alt="Picture 4">
         </div>
         <div class="column">
-            <img class="picture" src="picture4.jpg" alt="Picture 4">
-            <img class="picture" src="picture5.jpg" alt="Picture 5">
-            <img class="picture" src="picture6.jpg" alt="Picture 6">
-        </div>
-        <div class="column">
-            <img class="picture" src="picture7.jpg" alt="Picture 7">
-            <img class="picture" src="picture8.jpg" alt="Picture 8">
-            <img class="picture" src="picture9.jpg" alt="Picture 9">
+            <img class="picture" src="/jpg/mattress7.jpg" alt="Picture 5">
+            <img class="picture" src="/jpg/mattress8.jpg" alt="Picture 6">
         </div>
     </div>
+<div class="footer">
+    <p>&copy; 2023 Reckless Ideas Creations(R). All rights unreserved.</p>
+</div>
 </body>
 </html>
+
